@@ -34,6 +34,10 @@ void Student::setFacultyNumber(const string& fn) { facultyNumber = fn; }
 void Student::setBirthDate(const Date& bd) { birthDate = bd; }
 
 void Student::addGrade(double g) {
+    if (g < 2.0 || g > 6.0) {
+        cerr << "Invalid grade ignored.\n";
+        return;
+    }
     grades.push_back(g);
     recalculateAverage();
 }
